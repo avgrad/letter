@@ -14,11 +14,49 @@
             }
 
             body {
+                position: relative;
                 width: 21cm;
                 height: 29.7cm;
                 padding: 25mm;
                 font-family: "Calibri", sans-serif;
                 font-size: 12pt;
+            }
+
+            header {
+                outline: 1px solid red;
+                height: 5.5cm; /* TODO */
+            }
+
+            address.sender {
+                outline: 1px solid red;
+                position: absolute;
+                width: 80mm;
+                height: 5mm;
+                line-height: 5mm;
+                top: 27mm;
+                font-size: 0.7em;
+            }
+
+            address.recipient {
+                outline: 1px solid red;
+                width: 80mm;
+                height: 40mm;
+                position: absolute;
+                top: calc(27mm + 5mm);
+            }
+
+            aside {
+                outline: 1px solid red;
+                position: absolute;
+                top: 32mm;
+                right: 10mm;
+                max-width: 75mm;
+                min-height: 40mm;
+            }
+
+            h1 {
+                font-size: inherit;
+                color: gray;
             }
 
             @media screen {
@@ -43,12 +81,12 @@
         <header>
             <address class="sender">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
             <address class="recipient">
+                <br /><br /><br/>
                 Martina Musterfrau<br />
                 Musterweg 1<br />
                 67890 Musterdorf
             </address>
-            asdfasdf
-            <aside></aside>
+            <aside>asdfasdfasdf</aside>
         </header>
         <h1>Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
         <main>
