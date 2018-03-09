@@ -4,10 +4,47 @@
         <meta charset="utf-8">
         <title>Brief</title>
         <style>
-            
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                padding: 0;
+                margin: 0;
+            }
+
+            html {
+                display: flex;
+                justify-content: center;
+            }
+
+            body {
+                width: 21cm;
+                padding: 25mm;
+                font-family: "Calibri", sans-serif;
+                font-size: 12pt;
+            }
+
+            @media screen {
+                html {
+                    background-color: lightgray;
+                }
+
+                body {
+                    background-color: white;
+                    margin: 2cm;
+                    box-shadow: 0 1cm 2cm gray;
+                    height: 29.7cm;
+                }
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
         </style>
     </head>
     <body>
-
+        ASDF
     </body>
 </html>
