@@ -78,6 +78,10 @@
                 border-bottom: 1pt solid gray;
             }
 
+            *[contenteditable]:focus {
+                outline: 1px solid lime;
+            }
+
             @media screen {
                 html {
                     background-color: lightgray;
@@ -98,17 +102,28 @@
     </head>
     <body>
         <header>
-            <address class="sender">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
-            <address class="recipient">
+            <address class="sender" contenteditable="true">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
+            <address class="recipient" contenteditable="true">
                 <br /><br /><br/>
                 Martina Musterfrau<br />
                 Musterweg 1<br />
                 67890 Musterdorf
             </address>
-            <aside>asdfasdfasdf</aside>
+            <aside contenteditable="true">
+                <strong>Max Mustermann</strong><br />
+                Musterstraße 1<br />
+                12345 Musterstadt<br />
+                <br />
+                Telefon: 000 / 000 000 00<br />
+                Mobil: 0000 / 000 000 00<br />
+                E-Mail: maxmusterman@example.com<br />
+                <br />
+                <br />
+                Datum: 00.00.0000
+            </aside>
         </header>
-        <h1>Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
-        <main>
+        <h1 contenteditable="true">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
+        <main contenteditable="true">
             <p>Sehr geehrte Frau Musterfrau,</p>
             <p>Lorem Ipsum dolor sit amet.</p>
             <p>Lorem Ipsum dolor sit amet.</p>
