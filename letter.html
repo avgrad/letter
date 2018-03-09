@@ -59,6 +59,25 @@
                 color: gray;
             }
 
+            .mark-paper-center {
+                position: absolute;
+                width: 8mm;
+                height: 1pt;
+                top: calc(29.7cm / 2 - 0.5pt);
+                left: 0;
+                background-color: gray;
+            }
+
+            .mark-paper-folds {
+                position: absolute;
+                width: 8mm;
+                height: 105mm;
+                top: 87mm;
+                left: 0;
+                border-top: 1pt solid gray;
+                border-bottom: 1pt solid gray;
+            }
+
             @media screen {
                 html {
                     background-color: lightgray;
@@ -96,5 +115,7 @@
             <p>Lorem Ipsum dolor sit amet.</p>
             <p>Lorem Ipsum dolor sit amet.</p>
         </main>
+        <div class="mark-paper-folds"></div>
+        <div class="mark-paper-center"></div>
     </body>
 </html>
