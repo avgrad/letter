@@ -100,13 +100,20 @@
                 margin: 0;
             }
 
+            /********** highlight focused field **********/
+
+            [contenteditable=true]:focus {
+                --focus-highlight-color: lightgray;
+                background-color: var(--focus-highlight-color);
+            }
+
             /********** field explanation on focus **********/
 
             [contenteditable=true][field-explanation]:focus::before {
                 position: absolute;
                 transform: translateX(-100%);
                 padding: 2px 6px;
-                background-color: lightgray;
+                background-color: var(--focus-highlight-color);
                 color: black;
                 content: attr(field-explanation);
                 line-height: 1em;
