@@ -31,7 +31,14 @@
 
             header {
                 outline: var(--debug-outline);
-                height: 6cm; /* TODO */
+                /*display: flex;
+                flex-direction: column;*/ /* if infoblock not float, but flexbox is strange too */
+            }
+
+            header::after {
+                content: "";
+                display: block;
+                clear: both;
             }
 
             address.sender {
@@ -56,11 +63,13 @@
 
             aside {
                 outline: var(--debug-outline);
-                position: absolute;
-                top: 32mm;
-                right: 10mm;
+                margin-top: 7mm; /* 32mm - 25mm */
+                margin-right: -10mm;
                 max-width: 75mm;
                 min-height: 40mm;
+                min-width: 20mm;
+                /*align-self: flex-end;*/ /* if infoblock not float, but flexbox is strange too */
+                float: right;
             }
 
             h1 {
