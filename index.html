@@ -87,10 +87,6 @@
                 border-bottom: 1pt solid gray;
             }
 
-            *[contenteditable]:focus {
-                outline: 1px solid lime;
-            }
-
             @media screen {
                 html {
                     background-color: lightgray;
@@ -113,6 +109,7 @@
             [contenteditable=true]:focus {
                 --focus-highlight-color: lightgray;
                 background-color: var(--focus-highlight-color);
+                outline: 1px solid lime;
             }
 
             /********** field explanation on focus **********/
