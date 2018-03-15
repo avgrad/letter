@@ -23,6 +23,12 @@
                 --debug-outline: 1px solid red;
             }
 
+            @media print {
+                body {
+                    --debug-outline: none;
+                }
+            }
+
             header {
                 outline: var(--debug-outline);
                 height: 6cm; /* TODO */
