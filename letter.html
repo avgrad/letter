@@ -20,15 +20,16 @@
                 padding: 25mm 20mm 20mm 25mm;
                 font-family: "Calibri", sans-serif;
                 font-size: 12pt;
+                --debug-outline: 1px solid red;
             }
 
             header {
-                outline: 1px solid red;
+                outline: var(--debug-outline);
                 height: 6cm; /* TODO */
             }
 
             address.sender {
-                outline: 1px solid red;
+                outline: var(--debug-outline);
                 position: absolute;
                 width: 80mm;
                 height: 5mm;
@@ -38,7 +39,7 @@
             }
 
             address.recipient {
-                outline: 1px solid red;
+                outline: var(--debug-outline);
                 width: 80mm;
                 height: 40mm;
                 position: absolute;
@@ -46,7 +47,7 @@
             }
 
             aside {
-                outline: 1px solid red;
+                outline: var(--debug-outline);
                 position: absolute;
                 top: 32mm;
                 right: 10mm;
