@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Experiment - Fit to window</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-size: 1cm; /* nötig für skalierung! damit 1rem == 1cm für positionierung etc in body */
+      --paperwidth: 10; /* in cm */
+      --paperheight: 15; /* in cm */
+    }
+
+    body {
+      padding: 1rem; /* cm */
+      font-family: "Calibri";
+      background-color: white;
+      width: calc(var(--paperwidth) * 1rem);
+      height: calc(var(--paperheight) * 1rem);
+      /*margin-left: auto;
+      margin-right: auto;*/
+      box-shadow: 0 10px 30px #777;
+    }
+
+    body p {
+      /*
+        2.54cm = 25.4mm = 72pt
+        0.03527777cm = 1pt;
+        1cm = 10mm = 28.346pt
+
+		    https://www.google.de/search?&q=pt+to+cm
+        0.388055 = 11pt ((2.54 / 72) * 11)
+        0.423333 = 12pt ((2.54 / 72) * 12)
+      */
+      font-size: 0.423333rem; /* 12pt */
+    }
+
+    body div {
+
+      border: 1px solid black;
+      height: 2rem;
+      font-size: 0.352778rem; /* 10pt */
+      margin-left: 2rem
+    }
+
+    @media (max-width: 12cm) and (max-aspect-ratio: 12/17) {
+      /* hardcoded, maybe better with scss or sass to calculate at build-time
+         max-width = width + 1cm margin each side
+	       aspect ratio = (width+margin)/(height+margin)
+         font-size for rem-scaling = 83vw = 10cm/12cm (--paperwidth / (--paperwidth + horizontal-margin))
+      */
+      html {
+        font-size: calc(83.333vw / var(--paperwidth));
+      }
+    }
+
+    @media (max-height: 17cm) and (min-aspect-ratio: 12/17) {
+      /* hardcoded, explaination see above */
+      html {
+        font-size: calc(88.235vh / var(--paperheight));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <p>Write 1cm as 1rem in CSS for positioning etc.</p>
+  <p>Lorem Ipsum Dolor Sit Amet.</p>
+  <p>ASDF is the real JKL&Ouml;</p>
+  <div>2rem high, margin left 2rem;</div>
+</body>
+
+</html>
