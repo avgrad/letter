@@ -99,18 +99,42 @@
                 size: A4 portrait;
                 margin: 0;
             }
+
+            /********** field explanation on focus **********/
+
+            [contenteditable=true][field-explanation]:focus::before {
+                position: absolute;
+                transform: translateX(-100%);
+                padding: 2px 6px;
+                background-color: lightgray;
+                color: black;
+                content: attr(field-explanation);
+                line-height: 1em;
+                font-size: 1em;
+                font-style: normal;
+                font-weight: normal;
+                /*text-transform: uppercase;*/
+                border-right: 1px solid gray;
+            }
+
+            [contenteditable=true][field-explanation].rotate-explanation:focus::before {
+                transform: rotate(90deg);
+                transform-origin: left top 0;
+                border-right: none;
+                border-top: 1px solid gray;
+            }
         </style>
     </head>
     <body>
         <header>
-            <address class="sender" contenteditable="true">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
-            <address class="recipient" contenteditable="true">
+            <address class="sender" contenteditable="true" field-explanation="Absenderadresse">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
+            <address class="recipient" contenteditable="true" field-explanation="Emfpängeradresse">
                 <br /><br /><br/>
                 Martina Musterfrau<br />
                 Musterweg 1<br />
                 67890 Musterdorf
             </address>
-            <aside contenteditable="true">
+            <aside contenteditable="true" field-explanation="Infoblock">
                 <strong>Max Mustermann</strong><br />
                 Musterstraße 1<br />
                 12345 Musterstadt<br />
@@ -123,8 +147,8 @@
                 Datum: 00.00.0000
             </aside>
         </header>
-        <h1 contenteditable="true">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
-        <main contenteditable="true">
+        <h1 contenteditable="true" field-explanation="Betreff">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
+        <main contenteditable="true" class="rotate-explanation" field-explanation="Briefinhalt">
             <p>Sehr geehrte Frau Musterfrau,</p>
             <p>Lorem Ipsum dolor sit amet.</p>
             <p>Lorem Ipsum dolor sit amet.</p>
