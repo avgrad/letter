@@ -77,6 +77,18 @@
                 color: gray;
             }
 
+            section.attachments h2 {
+                font-size: 1em;
+                margin-bottom: 0;
+            }
+
+            section.attachments ul {
+                list-style: none;
+                margin: 0;
+                margin-left: 0.5em;
+                padding: 0;
+            }
+
             .mark-paper-center {
                 position: absolute;
                 width: 8mm;
@@ -176,6 +188,13 @@
             <p><img src="signature.svg" /></p>
             <p>Max Mustermann</p>
         </main>
+        <section class="attachments" contenteditable="true" field-explanation="Anhänge">
+            <h2>Anh&auml;nge</h2>
+            <ul>
+                <li>2 leere Bl&auml;tter Papier</li>
+                <li>1 volles Blatt Papier</li>
+            </ul>
+        </section>
         <div class="mark-paper-folds"></div>
         <div class="mark-paper-center"></div>
     </body>
