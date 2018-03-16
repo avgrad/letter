@@ -3,8 +3,8 @@
 }
 
 html, body {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 body {
@@ -24,9 +24,9 @@ body {
     }
 
     body {
+        margin: 2cm auto;
         background-color: white;
         box-shadow: 0 1cm 2cm gray;
-        margin: 2cm auto;
     }
 }
 
@@ -51,29 +51,33 @@ header::after {
 }
 
 address.sender {
+    /* NOTE:
+    actual size of both adress fields combined is 90mm x 45mm,
+    but positioning it correctly and adding padding-left: 5mm; would result
+    in focus-explanations being positioned wrong. */
     position: absolute;
+    top: 27mm;
     width: 80mm;
     height: 5mm;
     line-height: 5mm;
-    top: 27mm;
     font-size: 0.7em;
     font-style: normal;
 }
 
 address.recipient {
-    width: 80mm;
-    height: 40mm;
     position: absolute;
     top: calc(27mm + 5mm);
+    width: 80mm;
+    height: 40mm;
     font-style: normal;
 }
 
 aside {
+    max-width: 75mm;
+    min-width: 20mm;
+    min-height: 40mm;
     margin-top: 7mm; /* 32mm - 25mm */
     margin-right: -10mm;
-    max-width: 75mm;
-    min-height: 40mm;
-    min-width: 20mm;
     /*align-self: flex-end;*/ /* if infoblock not float, but flexbox is strange too */
     float: right;
 }
@@ -90,8 +94,8 @@ h1 {
 }
 
 section.attachments h2 {
-    font-size: 1em;
     margin-bottom: 0;
+    font-size: 1em;
 }
 
 section.attachments ul {
@@ -105,19 +109,19 @@ section.attachments ul {
 
 .mark-paper-center {
     position: absolute;
-    width: 8mm;
-    height: 1pt;
     top: calc(29.7cm / 2 - 0.5pt);
     left: 0;
+    width: 8mm;
+    height: 1pt;
     background-color: gray;
 }
 
 .mark-paper-folds {
     position: absolute;
-    width: 8mm;
-    height: 105mm;
     top: 87mm;
     left: 0;
+    width: 8mm;
+    height: 105mm;
     border-top: 1pt solid gray;
     border-bottom: 1pt solid gray;
 }
