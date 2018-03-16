@@ -103,6 +103,10 @@
                 border-bottom: 1pt solid gray;
             }
 
+            .hidden {
+                display: none;
+            }
+
             @media screen {
                 html {
                     background-color: lightgray;
@@ -181,7 +185,7 @@
                 Datum: 00.00.0000
             </aside>
         </header>
-        <section class="date explanation-right" contenteditable="true" field-explanation="Ort &amp; Datum">Musterstadt, den 00. Nullmonat 0000</section>
+        <section class="date explanation-right hidden" contenteditable="true" field-explanation="Ort &amp; Datum">Musterstadt, den 00. Nullmonat 0000</section>
         <h1 contenteditable="true" field-explanation="Betreff">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
         <main contenteditable="true" class="rotate-explanation" field-explanation="Briefinhalt">
             <p>Sehr geehrte Frau Musterfrau,</p>
@@ -192,7 +196,7 @@
             <p><img src="signature.svg" /></p>
             <p>Max Mustermann</p>
         </main>
-        <section class="attachments" contenteditable="true" field-explanation="Anhänge">
+        <section class="attachments hidden" contenteditable="true" field-explanation="Anhänge">
             <h2>Anh&auml;nge</h2>
             <ul>
                 <li>2 leere Bl&auml;tter Papier</li>
