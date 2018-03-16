@@ -132,6 +132,14 @@ section.attachments ul {
     display: none;
 }
 
+.align-right {
+    text-align: right;
+}
+
+.align-justify {
+    text-align: justify;
+}
+
 /********** switchable highlight editable fields **********/
 
 @media screen {
