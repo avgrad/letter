@@ -124,9 +124,17 @@
                 margin: 0;
             }
 
+            /********** switchable highlight editable field **********/
+
+            @media screen {
+                body.highlight-editable [contenteditable=true] {
+                    background-color: lightyellow;
+                }
+            }
+
             /********** highlight focused field **********/
 
-            [contenteditable=true]:focus {
+            body [contenteditable=true]:focus {
                 --focus-highlight-color: lightgray;
                 background-color: var(--focus-highlight-color);
                 outline: 1px solid lime;
@@ -163,7 +171,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="highlight-editable">
         <header>
             <address class="sender" contenteditable="true" field-explanation="Absenderadresse">Max Mustermann &bullet; Musterstraße 1 &bullet; 12345 Musterstadt</address>
             <address class="recipient" contenteditable="true" field-explanation="Emfpängeradresse">
