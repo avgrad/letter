@@ -20,13 +20,14 @@ body {
 
 @media screen {
     html {
-        background-color: lightgray;
+        background-color: rgba(0, 0, 0, 0.12);
     }
 
     body {
         margin: 2cm auto;
         background-color: white;
-        box-shadow: 0 1cm 2cm gray;
+        box-shadow: 0 0.05cm 0.2cm gray,
+                    0 0.1cm 0.5cm lightgray;;
     }
 }
 
