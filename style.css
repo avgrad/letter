@@ -137,16 +137,16 @@ section.attachments ul {
 @media screen {
     /* add .highlight-editable to body to highlight all editable fields */
     body.highlight-editable [contenteditable=true] {
-        background-color: lightyellow;
+        background-color: lightcyan;
     }
 }
 
 /********** highlight focused field **********/
 
 body [contenteditable=true]:focus {
-    --focus-highlight-color: lightgray;
+    --focus-highlight-color: lightyellow;
     background-color: var(--focus-highlight-color);
-    outline: 1px solid lime;
+    outline: none;
 }
 
 /********** field explanation on focused fields **********/
