@@ -20,17 +20,9 @@
                 padding: 25mm 20mm 20mm 25mm;
                 font-family: "Calibri", sans-serif;
                 font-size: 12pt;
-                --debug-outline: 1px solid red;
-            }
-
-            @media print {
-                body {
-                    --debug-outline: none;
-                }
             }
 
             header {
-                outline: var(--debug-outline);
                 /*display: flex;
                 flex-direction: column;*/ /* if infoblock not float, but flexbox is strange too */
             }
@@ -42,7 +34,6 @@
             }
 
             address.sender {
-                outline: var(--debug-outline);
                 position: absolute;
                 width: 80mm;
                 height: 5mm;
@@ -53,7 +44,6 @@
             }
 
             address.recipient {
-                outline: var(--debug-outline);
                 width: 80mm;
                 height: 40mm;
                 position: absolute;
@@ -62,7 +52,6 @@
             }
 
             aside {
-                outline: var(--debug-outline);
                 margin-top: 7mm; /* 32mm - 25mm */
                 margin-right: -10mm;
                 max-width: 75mm;
