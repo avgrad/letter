@@ -72,6 +72,12 @@
                 float: right;
             }
 
+            section.date {
+                position: relative; /* for explanation to be correctly positioned */
+                text-align: right;
+                margin: 0.67em 0;
+            }
+
             h1 {
                 font-size: inherit;
                 color: gray;
@@ -145,14 +151,22 @@
                 font-style: normal;
                 font-weight: normal;
                 /*text-transform: uppercase;*/
-                border-right: 1px solid gray;
+                --separation-border: 1px solid gray;
+                border-right: var(--separation-border);
+            }
+
+            [contenteditable=true][field-explanation].explanation-right:focus::before {
+                right: 0;
+                transform: translateX(100%);
+                border-right: none;
+                border-left: var(--separation-border);
             }
 
             [contenteditable=true][field-explanation].rotate-explanation:focus::before {
                 transform: rotate(90deg);
                 transform-origin: left top 0;
                 border-right: none;
-                border-top: 1px solid gray;
+                border-top: var(--separation-border);
             }
         </style>
     </head>
@@ -178,6 +192,7 @@
                 Datum: 00.00.0000
             </aside>
         </header>
+        <section class="date explanation-right" contenteditable="true" field-explanation="Ort &amp; Datum">Musterstadt, den 00. Nullmonat 0000</section>
         <h1 contenteditable="true" field-explanation="Betreff">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
         <main contenteditable="true" class="rotate-explanation" field-explanation="Briefinhalt">
             <p>Sehr geehrte Frau Musterfrau,</p>
