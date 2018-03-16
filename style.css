@@ -16,6 +16,29 @@ body {
     font-size: 12pt;
 }
 
+/********** screen page setup **********/
+
+@media screen {
+    html {
+        background-color: lightgray;
+    }
+
+    body {
+        background-color: white;
+        box-shadow: 0 1cm 2cm gray;
+        margin: 2cm auto;
+    }
+}
+
+/********** print page setup **********/
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+/********** page elements **********/
+
 /*header {
     display: flex;
     flex-direction: column; if infoblock not float, but flexbox is strange too
@@ -78,6 +101,8 @@ section.attachments ul {
     padding: 0;
 }
 
+/********** folding marks and punching-holes center-mark **********/
+
 .mark-paper-center {
     position: absolute;
     width: 8mm;
@@ -97,30 +122,16 @@ section.attachments ul {
     border-bottom: 1pt solid gray;
 }
 
+/********** helper classes **********/
+
 .hidden {
     display: none;
 }
 
-@media screen {
-    html {
-        background-color: lightgray;
-    }
-
-    body {
-        background-color: white;
-        box-shadow: 0 1cm 2cm gray;
-        margin: 2cm auto;
-    }
-}
-
-@page {
-    size: A4 portrait;
-    margin: 0;
-}
-
-/********** switchable highlight editable field **********/
+/********** switchable highlight editable fields **********/
 
 @media screen {
+    /* add .highlight-editable to body to highlight all editable fields */
     body.highlight-editable [contenteditable=true] {
         background-color: lightyellow;
     }
@@ -134,7 +145,7 @@ body [contenteditable=true]:focus {
     outline: 1px solid lime;
 }
 
-/********** field explanation on focus **********/
+/********** field explanation on focused fields **********/
 
 [contenteditable=true][field-explanation]:focus::before {
     position: absolute;
