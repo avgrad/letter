@@ -7,27 +7,62 @@ html, body {
     padding: 0;
 }
 
-body {
-    position: relative;
-    width: 21cm;
-    height: 29.7cm;
-    padding: 25mm 20mm 20mm 25mm;
-    font-family: "Calibri", sans-serif;
-    font-size: 12pt;
+/********** page setup **********/
+
+html {
+    font-size: 1cm; /* nötig für skalierung! damit 1rem == 1cm für positionierung etc in body */
+    --paperwidth: 21; /* in cm */
+    --paperheight: 29.7; /* in cm */
 }
 
-/********** screen page setup **********/
+body {
+    position: relative;
+    width: calc(var(--paperwidth) * 1rem);
+    height: calc(var(--paperheight) * 1rem);
+    padding: 2.5rem 2rem 2rem 2.5rem;
+    font-family: "Calibri", sans-serif;
+    font-size: 0.423333rem; /* = 12pt */
+}
 
 @media screen {
     html {
+        display: flex;
+        width: 100%;
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.12);
     }
 
     body {
-        margin: 2cm auto;
+        margin: 2rem auto; /**/
         background-color: white;
-        box-shadow: 0 0.05cm 0.2cm gray,
-                    0 0.1cm 0.5cm lightgray;;
+        box-shadow: 0 0.05rem 0.2rem gray,
+                    0 0.1rem 0.5rem lightgray;
+    }
+
+    html.fit-window > body {
+        margin: auto;
+        width: calc(var(--paperwidth) * 1rem);
+        height: calc(var(--paperheight) * 1rem);
+    }
+}
+
+/********** setting fit-window root font-size **********/
+
+@media screen and (max-width: 23cm) and (max-aspect-ratio: 230/317) {
+    /* hardcoded, maybe better with scss or sass to calculate at build-time
+       max-width = width + 1cm margin each side
+       aspect ratio = (width+margin)/(height+margin)
+       font-size for rem-scaling = 91vw = 21cm/23cm (--paperwidth / (--paperwidth + horizontal-margin))
+    */
+    html.fit-window {
+      font-size: calc(91.304vw / var(--paperwidth));
+    }
+}
+
+@media screen and (max-height: 31.7cm) and (min-aspect-ratio: 230/317) {
+    /* hardcoded, explaination see above */
+    html.fit-window {
+      font-size: calc(93.690vh / var(--paperheight));
     }
 }
 
@@ -57,28 +92,28 @@ address.sender {
     but positioning it correctly and adding padding-left: 5mm; would result
     in focus-explanations being positioned wrong. */
     position: absolute;
-    top: 27mm;
-    width: 80mm;
-    height: 5mm;
-    line-height: 5mm;
+    top: 2.7rem;
+    width: 8rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
     font-size: 0.7em;
     font-style: normal;
 }
 
 address.recipient {
     position: absolute;
-    top: calc(27mm + 5mm);
-    width: 80mm;
-    height: 40mm;
+    top: calc(2.7rem + 0.5rem);
+    width: 8rem;
+    height: 4rem;
     font-style: normal;
 }
 
 aside {
-    max-width: 75mm;
-    min-width: 20mm;
-    min-height: 40mm;
-    margin-top: 7mm; /* 32mm - 25mm */
-    margin-right: -10mm;
+    max-width: 7.5rem;
+    min-width: 2rem;
+    min-height: 4rem;
+    margin-top: 0.7rem; /* 32mm - 25mm */
+    margin-right: -1rem;
     /*align-self: flex-end;*/ /* if infoblock not float, but flexbox is strange too */
     float: right;
 }
@@ -110,19 +145,19 @@ section.attachments ul {
 
 .mark-paper-center {
     position: absolute;
-    top: calc(29.7cm / 2 - 0.5pt);
+    top: calc(var(--paperheight) * 1rem / 2 - 0.5pt);
     left: 0;
-    width: 8mm;
+    width: 0.8rem;
     height: 1pt;
     background-color: gray;
 }
 
 .mark-paper-folds {
     position: absolute;
-    top: 87mm;
+    top: 8.7rem;
     left: 0;
-    width: 8mm;
-    height: 105mm;
+    width: 0.8rem;
+    height: 10.5rem;
     border-top: 1pt solid gray;
     border-bottom: 1pt solid gray;
 }
@@ -163,7 +198,7 @@ body [contenteditable=true]:focus {
 [contenteditable=true][field-explanation]:focus::before {
     position: absolute;
     transform: translateX(-100%);
-    padding: 0 6px;
+    padding: 0 0.5em;
     background-color: var(--focus-highlight-color);
     color: black;
     content: attr(field-explanation);
