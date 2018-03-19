@@ -176,6 +176,21 @@ section.attachments ul {
     text-align: justify;
 }
 
+/********** top menu switches **********/
+
+.menu {
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    top: 0;
+    max-width: 600px;
+    margin: auto;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    border-radius: 0 0 12px 12px;
+}
+
 /********** switchable highlight editable fields **********/
 
 @media screen {
