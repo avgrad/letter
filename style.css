@@ -199,6 +199,12 @@ section.attachments ul {
     transition-delay: 0s;
 }
 
+@media print {
+    .menu {
+        display: none;
+    }
+}
+
 /********** switchable highlight editable fields **********/
 
 @media screen {
