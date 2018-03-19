@@ -291,6 +291,10 @@ section.attachments ul {
     transform: rotate(45deg) scale(1);
 }
 
+.menu > .pull-right {
+    float: right;
+}
+
 @media print {
     .menu {
         display: none;
