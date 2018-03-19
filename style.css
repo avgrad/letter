@@ -189,6 +189,7 @@ section.attachments ul {
     background-color: rgba(0, 0, 0, 0.5);
     font-size: 14px;
     border-radius: 0 0 12px 12px;
+    outline: none;
     opacity: 0.7;
     transition: opacity .2s ease-out;
     transition-delay: 1.5s;
@@ -298,6 +299,28 @@ section.attachments ul {
 @media print {
     .menu {
         display: none;
+    }
+}
+
+/********** mobile friendly collapse toolbar on small screens **********/
+
+.menu > label.show-menu-action {
+    display: none;
+    width: calc(100% - 8px); /* fixes padding/margin of menu with its items */
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .menu > label,
+    .menu > button,
+    .menu:focus-within > label.show-menu-action {
+        display: none;
+    }
+
+    .menu:focus-within > label,
+    .menu:focus-within > button,
+    .menu > label.show-menu-action {
+        display: inline-block;
     }
 }
 
