@@ -192,11 +192,103 @@ section.attachments ul {
     opacity: 0.7;
     transition: opacity .2s ease-out;
     transition-delay: 1.5s;
+    --button-height: 28px;
+    --button-checkbox-padding: 4px;
 }
 
 .menu:hover {
     opacity: 1;
     transition-delay: 0s;
+}
+
+.menu > label,
+.menu > button {
+    border: none;
+    display: inline-block;
+    position: relative;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    margin: 4px;
+    padding: 0 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background-color .2s ease-out;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+}
+
+.menu > label {
+    padding-left: var(--button-height);
+}
+
+.menu > label:active,
+.menu > button:active {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.menu > label input[type=checkbox] {
+    /*display: none;*/
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.menu > label .checkmark {
+    position: absolute;
+    top: var(--button-checkbox-padding);
+    left: var(--button-checkbox-padding);
+    width: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+    height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a darker background */
+.menu > label input:checked ~ .checkmark {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Create the checkmark */
+.menu > label .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: opacity .2s ease-out,
+                transform .2s ease-out;
+    /* checkmark styling */
+    border: solid #333;
+    border-width: 0 3px 3px 0;
+    /* checkmark positioning */
+    left: 6px;
+    /* left: 30%; */
+    top: 2px;
+    /* top: 15%; */
+    width: 5px;
+    /* width: 25%; */
+    height: 10px;
+    /* height: 45%; */
+    -webkit-transform: rotate(-20deg) scale(1.4);
+    -ms-transform: rotate(-20deg) scale(1.4);
+    transform: rotate(-20deg) scale(1.4);
+}
+
+/* Show the checkmark when checked */
+.menu > label input:checked ~ .checkmark:after {
+    display: block;
+    opacity: 1;
+    /* rotate to default checkmark style when checked */
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
 }
 
 @media print {
