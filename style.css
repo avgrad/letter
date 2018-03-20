@@ -145,10 +145,10 @@ section.attachments ul {
 
 .mark-paper-center {
     position: absolute;
-    top: calc(var(--paperheight) * 1rem / 2 - 0.5pt);
+    top: calc(var(--paperheight) * 1rem / 2 - 0.0176389rem); /* 0.0176..rem = 0.5pt */
     left: 0;
     width: 0.8rem;
-    height: 1pt;
+    height: 0.0352778rem; /* = 1pt */
     background-color: gray;
 }
 
@@ -158,8 +158,8 @@ section.attachments ul {
     left: 0;
     width: 0.8rem;
     height: 10.5rem;
-    border-top: 1pt solid gray;
-    border-bottom: 1pt solid gray;
+    border-top: 0.0352778rem solid gray; /* = 1pt */
+    border-bottom: 0.0352778rem solid gray; /* = 1 pt */
 }
 
 /********** helper classes **********/
