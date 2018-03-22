@@ -17,7 +17,7 @@
                 Musterweg 1<br />
                 67890 Musterdorf
             </address>
-            <aside contenteditable="true" field-explanation="Infoblock">
+            <aside contenteditable="true" field-explanation="Infoblock" class="hidden-c6 hidden-dl">
                 <strong>Max Mustermann</strong><br />
                 Musterstraße 1<br />
                 12345 Musterstadt<br />
@@ -30,9 +30,9 @@
                 Datum: 00.00.0000
             </aside>
         </header>
-        <section class="date explanation-right hidden" contenteditable="true" field-explanation="Ort &amp; Datum">Musterstadt, den 00. Nullmonat 0000</section>
-        <h1 contenteditable="true" field-explanation="Betreff">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
-        <main contenteditable="true" class="rotate-explanation" field-explanation="Briefinhalt">
+        <section class="date explanation-right hidden hidden-c6 hidden-dl" contenteditable="true" field-explanation="Ort &amp; Datum">Musterstadt, den 00. Nullmonat 0000</section>
+        <h1 contenteditable="true" field-explanation="Betreff" class="hidden-c6 hidden-dl">Musterbetreff für Musterbrief wegen Mustersache (Aktzenzeichen XY)</h1>
+        <main contenteditable="true" class="rotate-explanation hidden-c6 hidden-dl" field-explanation="Briefinhalt">
             <p>Sehr geehrte Frau Musterfrau,</p>
             <p>Lorem Ipsum dolor sit amet.</p>
             <p>Lorem Ipsum dolor sit amet.</p>
@@ -41,32 +41,32 @@
             <p><img src="signature.svg" /></p>
             <p>Max Mustermann</p>
         </main>
-        <section class="attachments hidden" contenteditable="true" field-explanation="Anhänge">
+        <section class="attachments hidden hidden-c6 hidden-dl" contenteditable="true" field-explanation="Anhänge">
             <h2>Anlagen</h2>
             <ul>
                 <li>2 leere Bl&auml;tter Papier</li>
                 <li>1 volles Blatt Papier</li>
             </ul>
         </section>
-        <div class="mark-paper-folds"></div>
-        <div class="mark-paper-center"></div>
+        <div class="mark-paper-folds hidden-c6 hidden-dl"></div>
+        <div class="mark-paper-center hidden-c6 hidden-dl"></div>
 
         <div class="menu" tabindex="-1">
             <div class="radio">
                 <label>
-                    <input type="radio" checked="checked" name="radioswitch" /><!-- selector="body" checkedClass="green" -->
+                    <input type="radio" checked="checked" name="radioswitch" selector="html" checkedClass="a4"/>
                     <span class="checkmark"></span>
-                    green
+                    A4
                 </label>
                 <label>
-                    <input type="radio" name="radioswitch" />
+                    <input type="radio" name="radioswitch" selector="html" checkedClass="c6" />
                     <span class="checkmark"></span>
-                    blue
+                    C6
                 </label>
                 <label>
-                    <input type="radio" name="radioswitch" />
+                    <input type="radio" name="radioswitch" selector="html" checkedClass="dl" />
                     <span class="checkmark"></span>
-                    yellow
+                    DL
                 </label>
             </div>
             <label>

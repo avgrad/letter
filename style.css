@@ -15,6 +15,27 @@ html {
     --paperheight: 29.7; /* in cm */
 }
 
+html.a4 {
+    --paperwidth: 21; /* in cm */
+    --paperheight: 29.7; /* in cm */
+}
+
+html.c6 {
+    --paperwidth: 16.2; /* in cm */
+    --paperheight: 11.4; /* in cm */
+}
+
+html.dl {
+    --paperwidth: 22; /* in cm */
+    --paperheight: 11; /* in cm */
+}
+
+html.c6 .hidden-c6,
+html.dl .hidden-dl,
+html.a4 .hidden-a4 {
+    display: none;
+}
+
 body {
     position: relative;
     width: calc(var(--paperwidth) * 1rem);
@@ -69,7 +90,6 @@ body {
 /********** print page setup **********/
 
 @page {
-    size: A4 portrait;
     margin: 0;
 }
 
