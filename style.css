@@ -203,7 +203,8 @@ section.attachments ul {
 }
 
 .menu > label,
-.menu > button {
+.menu > button,
+.menu > .radio > label {
     border: none;
     display: inline-block;
     position: relative;
@@ -229,12 +230,30 @@ section.attachments ul {
     padding-left: var(--button-height);
 }
 
+.menu > .radio {
+    display: inline-flex;
+    margin: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+    /* fix wrong alignment caused by overflow:hidden
+    https://stackoverflow.com/questions/20566710/overflowhidden-displayinline-block-moves-text-upwards */
+    vertical-align: bottom;
+}
+
+.menu > .radio > label {
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
 .menu > label:active,
-.menu > button:active {
+.menu > button:active,
+.menu > .radio > label:active {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.menu > label input[type=checkbox] {
+.menu > label input[type=checkbox],
+.menu > .radio > label input[type=radio] {
     /*display: none;*/
     position: absolute;
     opacity: 0;
@@ -253,8 +272,29 @@ section.attachments ul {
 }
 
 /* When the checkbox is checked, add a darker background */
-.menu > label input:checked ~ .checkmark {
+.menu > label input:checked ~ .checkmark{
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.menu > .radio > label .checkmark {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(0.5 * var(--button-height));
+    /* push down to later translate up again to center */
+    padding-top: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    transition: transform 0.2s ease-out,
+                opacity 0.2s ease-out;
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+}
+
+.menu > .radio > label input:checked ~ .checkmark {
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transform: translateY(-50%) scale(0.85);
 }
 
 /* Create the checkmark */
@@ -313,6 +353,7 @@ section.attachments ul {
 @media screen and (max-width: 480px) {
     .menu > label,
     .menu > button,
+    .menu > .radio,
     .menu:focus-within > label.show-menu-action {
         display: none;
     }
@@ -321,6 +362,10 @@ section.attachments ul {
     .menu:focus-within > button,
     .menu > label.show-menu-action {
         display: inline-block;
+    }
+
+    .menu:focus-within > .radio {
+        display: inline-flex;
     }
 }
 
