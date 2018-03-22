@@ -1,4 +1,4 @@
-function handleCssSwitcherClick(checkbox) {
+function switchClass(checkbox) {
     var checkedClass = checkbox.getAttribute("checkedClass");
     var uncheckedClass = checkbox.getAttribute("uncheckedClass");
     var selector = checkbox.getAttribute("selector");
@@ -12,13 +12,27 @@ function handleCssSwitcherClick(checkbox) {
     });
 }
 
+function handleCssSwitcherClick(checkbox) {
+    // for radio-inputs trigger other instances
+    if (checkbox.type === "radio") {
+        // go up to nodes to get to div.radio
+        checkbox.parentNode.parentNode.querySelectorAll('input[type="radio"][selector][checkedClass]').forEach(cb => {
+            if (cb !== checkbox)
+                switchClass(cb);
+        });
+    }
+
+    switchClass(checkbox);
+}
+
 document.addEventListener("DOMContentLoaded", e => {
-    document.querySelectorAll('input[type="checkbox"][selector][checkedClass][uncheckedClass]').forEach(elm => {
-        // warn, if element selector could deactivate itself
-        if (elm.getAttribute("selector") === "." + elm.getAttribute("checkedClass") || elm.getAttribute("selector") === "." + elm.getAttribute("uncheckedClass"))
+    function forEachHandler(elm) {
+        if (elm.getAttribute("selector") === "."+elm.getAttribute("checkedClass") || elm.getAttribute("selector") === "."+elm.getAttribute("uncheckedClass"))
             console.warn("selector and checkedClass/uncheckedClass are identical. Probably results in unexpected behaviour.", elm.getAttribute("selector"));
         elm.addEventListener("click", evt => handleCssSwitcherClick(evt.currentTarget));
-        // set from initial value
-        handleCssSwitcherClick(elm);
-    });
+        switchClass(elm);
+    };
+
+    document.querySelectorAll('input[type="checkbox"][selector][checkedClass][uncheckedClass]').forEach(forEachHandler);
+    document.querySelectorAll('input[type="radio"][selector][checkedClass]').forEach(forEachHandler);
 });
