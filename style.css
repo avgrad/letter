@@ -69,21 +69,48 @@ body {
 
 /********** setting fit-window root font-size **********/
 
+/*** A4 default ***/
 @media screen and (max-width: 23cm) and (max-aspect-ratio: 230/317) {
     /* hardcoded, maybe better with scss or sass to calculate at build-time
        max-width = width + 1cm margin each side
        aspect ratio = (width+margin)/(height+margin)
        font-size for rem-scaling = 91vw = 21cm/23cm (--paperwidth / (--paperwidth + horizontal-margin))
     */
-    html.fit-window {
+    html.a4.fit-window {
       font-size: calc(91.304vw / var(--paperwidth));
     }
 }
 
 @media screen and (max-height: 31.7cm) and (min-aspect-ratio: 230/317) {
     /* hardcoded, explaination see above */
-    html.fit-window {
+    html.a4.fit-window {
       font-size: calc(93.690vh / var(--paperheight));
+    }
+}
+
+/*** C6 envelope ***/
+@media screen and (max-width: 18.2cm) and (max-aspect-ratio: 182/134) {
+    html.c6.fit-window {
+        font-size: calc(89.010vw / var(--paperwidth));
+    }
+}
+
+@media screen and (max-height: 13.4cm) and (min-aspect-ratio: 182/134) {
+    html.c6.fit-window {
+        font-size: calc(85.074vh / var(--paperheight));
+    }
+}
+
+/*** DL envelope ***/
+@media screen and (max-width: 24cm) and (max-aspect-ratio: 240/130) {
+    html.dl.fit-window {
+        font-size: calc(91.666vw / var(--paperwidth));
+    }
+}
+
+@media screen and (max-height: 13cm) and (min-aspect-ratio: 240/130) {
+    html.dl.fit-window {
+        font-size: calc(84.615vh / var(--paperheight));
     }
 }
 
