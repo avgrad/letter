@@ -188,6 +188,31 @@ section.attachments ul {
     padding: 0;
 }
 
+/********** special positionings for addresses on envelopes *********/
+
+html.c6 header,
+html.dl header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+html.c6 address.sender,
+html.dl address.sender {
+    top: unset;
+    left: 2rem;
+    bottom: 6rem;
+}
+
+html.c6 address.recipient,
+html.dl address.recipient {
+    top: unset;
+    left: 2rem;
+    bottom: 2rem;
+}
+
 /********** folding marks and punching-holes center-mark **********/
 
 .mark-paper-center {
