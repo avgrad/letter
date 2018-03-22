@@ -213,6 +213,19 @@ html.dl address.recipient {
     bottom: 2rem;
 }
 
+/********** postage stamp area **********/
+
+html.c6 body::before,
+html.dl body::before {
+    content: "";
+    position:absolute;
+    right: 1.8rem;
+    top: 1.8rem;
+    width: 1.5rem;
+    height: 1.8rem;
+    border: 0.0529167rem dotted lightgray; /* = 1.5pt */
+}
+
 /********** folding marks and punching-holes center-mark **********/
 
 .mark-paper-center {
