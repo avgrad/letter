@@ -13,6 +13,7 @@ html {
     font-size: 1cm; /* nötig für skalierung! damit 1rem == 1cm für positionierung etc in body */
     --paperwidth: 21; /* in cm */
     --paperheight: 29.7; /* in cm */
+    --paper-transition-duration: 0.3s;
 }
 
 html.a4 {
@@ -61,6 +62,11 @@ body {
         background-color: white;
         box-shadow: 0 0.05rem 0.2rem gray,
                     0 0.1rem 0.5rem lightgray;
+        transition: width var(--paper-transition-duration) ease-out,
+                    height var(--paper-transition-duration) ease-out,
+                    font-size var(--paper-transition-duration) ease-out,
+                    padding var(--paper-transition-duration) ease-out,
+                    margin var(--paper-transition-duration) ease-out;
     }
 
     html.fit-window > body {
@@ -80,14 +86,14 @@ body {
        font-size for rem-scaling = 91vw = 21cm/23cm (--paperwidth / (--paperwidth + horizontal-margin))
     */
     html.a4.fit-window {
-      font-size: calc(91.304vw / var(--paperwidth));
+        font-size: calc(91.304vw / var(--paperwidth));
     }
 }
 
 @media screen and (max-height: 31.7cm) and (min-aspect-ratio: 230/317) {
     /* hardcoded, explaination see above */
     html.a4.fit-window {
-      font-size: calc(93.690vh / var(--paperheight));
+        font-size: calc(93.690vh / var(--paperheight));
     }
 }
 
@@ -148,6 +154,9 @@ address.sender {
     line-height: 0.5rem;
     font-size: 0.7em;
     font-style: normal;
+    transition: width var(--paper-transition-duration) ease-out,
+                height var(--paper-transition-duration) ease-out,
+                top var(--paper-transition-duration) ease-out;
 }
 
 address.recipient {
@@ -156,6 +165,9 @@ address.recipient {
     width: 8rem;
     height: 4rem;
     font-style: normal;
+    transition: width var(--paper-transition-duration) ease-out,
+                height var(--paper-transition-duration) ease-out,
+                top var(--paper-transition-duration) ease-out;
 }
 
 aside {
@@ -166,6 +178,7 @@ aside {
     margin-right: -1rem;
     /*align-self: flex-end;*/ /* if infoblock not float, but flexbox is strange too */
     float: right;
+    transition: width var(--paper-transition-duration) ease-out;
 }
 
 section.date {
@@ -227,6 +240,10 @@ html.dl body.show-stamp::before {
     width: 1.5rem;
     height: 1.8rem;
     border: 0.0529167rem dotted lightgray; /* = 1.5pt */
+    transition: width var(--paper-transition-duration) ease-out,
+                height var(--paper-transition-duration) ease-out,
+                top var(--paper-transition-duration) ease-out,
+                right var(--paper-transition-duration) ease-out;
 }
 
 /********** folding marks and punching-holes center-mark **********/
@@ -238,6 +255,7 @@ html.dl body.show-stamp::before {
     width: 0.8rem;
     height: 0.0352778rem; /* = 1pt */
     background-color: gray;
+    transition: top var(--paper-transition-duration) ease-out;
 }
 
 .mark-paper-folds {
@@ -248,6 +266,8 @@ html.dl body.show-stamp::before {
     height: 10.5rem;
     border-top: 0.0352778rem solid gray; /* = 1pt */
     border-bottom: 0.0352778rem solid gray; /* = 1 pt */
+    transition: height var(--paper-transition-duration) ease-out,
+                top var(--paper-transition-duration) ease-out;
 }
 
 /********** helper classes **********/
