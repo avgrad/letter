@@ -218,8 +218,8 @@ html.dl address.recipient {
 
 /********** postage stamp area **********/
 
-html.c6 body::before,
-html.dl body::before {
+html.c6 body.show-stamp::before,
+html.dl body.show-stamp::before {
     content: "";
     position:absolute;
     right: 1.8rem;
