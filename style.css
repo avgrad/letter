@@ -32,7 +32,10 @@ html.dl {
 
 html.c6 .hidden-c6,
 html.dl .hidden-dl,
-html.a4 .hidden-a4 {
+html.a4 .hidden-a4,
+html.c6 .toolbar .hidden-c6, /* increased specificity to override focus-within */
+html.dl .toolbar .hidden-dl,
+html.a4 .toolbar .hidden-a4 {
     display: none;
 }
 
