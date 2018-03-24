@@ -22,7 +22,7 @@ html.a4 {
 
 html.c6 {
     --paperwidth: 16.2; /* in cm */
-    --paperheight: 11.4; /* in cm */
+    --paperheight: 11.39; /* in cm = 11.4 (HACK / FIX printing in chrome results in two "pages" */
 }
 
 html.dl {
@@ -92,13 +92,13 @@ body {
 }
 
 /*** C6 envelope ***/
-@media screen and (max-width: 18.2cm) and (max-aspect-ratio: 182/134) {
+@media screen and (max-width: 18.2cm) and (max-aspect-ratio: 1820/1339) { /* 1339 -> 134 = 13.4cm (HACK / FIX printing in chrome results in two "pages" */
     html.c6.fit-window {
         font-size: calc(89.010vw / var(--paperwidth));
     }
 }
 
-@media screen and (max-height: 13.4cm) and (min-aspect-ratio: 182/134) {
+@media screen and (max-height: 13.4cm) and (min-aspect-ratio: 1820/1339) { /* 1339 -> 134 = 13.4cm (HACK / FIX printing in chrome results in two "pages" */
     html.c6.fit-window {
         font-size: calc(85.074vh / var(--paperheight));
     }
