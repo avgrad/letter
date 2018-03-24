@@ -250,11 +250,10 @@ html.dl body.show-stamp::before {
 
 .mark-paper-center {
     position: absolute;
-    top: calc(var(--paperheight) * 1rem / 2 - 0.0176389rem); /* 0.0176..rem = 0.5pt */
+    top: calc(var(--paperheight) * 1rem * 0.5);
     left: 0;
     width: 0.8rem;
-    height: 0.0352778rem; /* = 1pt */
-    background-color: gray;
+    border-top: 0.0352778rem solid gray; /* = 1pt */
     transition: top var(--paper-transition-duration) ease-out;
 }
 
