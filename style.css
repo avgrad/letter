@@ -288,21 +288,25 @@ html.dl body.show-stamp::before {
 
 .toolbar {
     position: fixed;
+    display: flex;
+    flex-wrap: wrap;
     left: 10%;
     right: 10%;
     top: 0;
     max-width: 600px;
     margin: auto;
-    padding: 4px;
+    padding: calc(0.5 * var(--toolbar-gutter));
     background-color: rgba(0, 0, 0, 0.5);
     font-size: 14px;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 calc(var(--toolbar-gutter) + var(--button-checkbox-border-radius) + var(--button-checkbox-padding)) calc(var(--toolbar-gutter) + var(--button-checkbox-border-radius) + var(--button-checkbox-padding));
     outline: none;
     opacity: 0.7;
     transition: opacity .2s ease-out;
     transition-delay: 1.5s;
     --button-height: 28px;
     --button-checkbox-padding: 4px;
+    --button-checkbox-border-radius: 4px;
+    --toolbar-gutter: 8px;
 }
 
 .toolbar:hover {
@@ -318,7 +322,7 @@ html.dl body.show-stamp::before {
     position: relative;
     height: var(--button-height);
     line-height: var(--button-height);
-    margin: 4px;
+    margin: calc(0.5 * var(--toolbar-gutter));
     padding: 0 8px;
     background-color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
@@ -328,7 +332,7 @@ html.dl body.show-stamp::before {
     -ms-user-select: none;
     user-select: none;
     transition: background-color .2s ease-out;
-    border-radius: 8px;
+    border-radius: calc(var(--button-checkbox-border-radius) + var(--button-checkbox-padding));
     font-family: inherit;
     font-size: inherit;
     outline: none;
@@ -340,8 +344,8 @@ html.dl body.show-stamp::before {
 
 .toolbar > .radio {
     display: inline-flex;
-    margin: 4px;
-    border-radius: 8px;
+    margin: calc(0.5 * var(--toolbar-gutter));
+    border-radius: calc(var(--button-checkbox-border-radius) + var(--button-checkbox-padding));
     overflow: hidden;
     /* fix wrong alignment caused by overflow:hidden
     https://stackoverflow.com/questions/20566710/overflowhidden-displayinline-block-moves-text-upwards */
@@ -376,11 +380,11 @@ html.dl body.show-stamp::before {
     width: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
     height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    border-radius: var(--button-checkbox-border-radius);
 }
 
 /* When the checkbox is checked, add a darker background */
-.toolbar > label input:checked ~ .checkmark{
+.toolbar > label input:checked ~ .checkmark {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -441,7 +445,9 @@ html.dl body.show-stamp::before {
 }
 
 .toolbar > .pull-right {
-    float: right;
+    margin-left: auto;
+    /* sadly overrides the left margin for the item, so the gutter here is only 0.5 * gutter.
+    but this is okay, since it is quite rare that the two last items will collide */
 }
 
 @media print {
@@ -454,7 +460,7 @@ html.dl body.show-stamp::before {
 
 .toolbar > label.show-toolbar-action {
     display: none;
-    width: calc(100% - 8px); /* fixes padding/margin of toolbar with its items */
+    width: 100%;
     text-align: center;
 }
 
